@@ -2365,6 +2365,17 @@ chrome-trace-event@^1.0.2:
   dependencies:
     tslib "^1.9.0"
 
+chunchao@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/chunchao/-/chunchao-1.0.1.tgz#90e7bf02cf2a6bb13e2fe40ad8c07c32755bb214"
+  integrity sha512-5dR5QOU2ScSWNroIoJkq+dYwrmuFJR3Ue4AljrFqXe62IXbpqR/ts0ewvP3zipelOE9H9Kt++/RYS86En7MOGQ==
+  dependencies:
+    axios "^0.19.2"
+    express "^4.17.1"
+    parcel "^2.0.0-alpha.3.2"
+    react "^16.13.1"
+    react-dom "^16.13.1"
+
 cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/cipher-base/download/cipher-base-1.0.4.tgz#8760e4ecc272f4c363532f926d874aae2c1397de"
