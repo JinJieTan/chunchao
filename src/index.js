@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import './route'
 /**
  *
  * @param {string} entry
