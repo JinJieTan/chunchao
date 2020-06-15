@@ -1,4 +1,4 @@
-import { loadApp } from './index';
+import { loadApp } from "./index";
 const HIJACK_EVENTS_NAME = /^(hashchange|popstate)$/i;
 const EVENTS_POOL = {
   hashchange: [],
@@ -6,11 +6,12 @@ const EVENTS_POOL = {
 };
 
 function reroute() {
+  console.log('reroute')
   loadApp();
 }
 
-window.addEventListener('hashchange', reroute);
-window.addEventListener('popstate', reroute);
+window.addEventListener("hashchange", reroute);
+window.addEventListener("popstate", reroute);
 
 const originalAddEventListener = window.addEventListener;
 const originalRemoveEventListener = window.removeEventListener;
@@ -18,7 +19,7 @@ window.addEventListener = function (eventName, handler) {
   if (
     eventName &&
     HIJACK_EVENTS_NAME.test(eventName) &&
-    typeof handler === 'function'
+    typeof handler === "function"
   ) {
     EVENTS_POOL[eventName].indexOf(handler) === -1 &&
       EVENTS_POOL[eventName].push(handler);
@@ -35,7 +36,7 @@ window.removeEventListener = function (eventName, handler) {
 };
 
 function mockPopStateEvent(state) {
-  return new PopStateEvent('popstate', { state });
+  return new PopStateEvent("popstate", { state });
 }
 
 // 拦截history的方法，因为pushState和replaceState方法并不会触发onpopstate事件，所以我们即便在onpopstate时执行了reroute方法，也要在这里执行下reroute方法。

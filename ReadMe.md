@@ -16,7 +16,7 @@
 
 * yarn startSubApp2 
 
-* yarn start:main 
+* yarn start-main
 
 * 访问浏览器：http://localhost:1234/
 
