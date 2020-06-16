@@ -46,7 +46,9 @@ async function handleScripts(entryPath, subapp, dom) {
     Array.from(scripts).map((item) => {
       if (item.src) {
         const url = window.location.protocol + '//' + window.location.host;
-        return fetch(`${entryPath}/${item.src}`.replace(url, '')).then(
+        const path = item.src.replace(url, '');
+        const needEntryPath = !/(http|https):\/\/([\w.]+\/?)\S*/.test(path);
+        return fetch(`${needEntryPath ? entryPath : ''}${item.src}`.replace(url, '')).then(
           function (response) {
             return response.text();
           }
@@ -77,7 +79,9 @@ export async function handleStyles(entryPath, subapp, dom) {
     Array.from(realArr).map((item) => {
       if (item.rel) {
         const url = window.location.protocol + '//' + window.location.host;
-        return fetch(`${entryPath}/${item.href}`.replace(url, '')).then(
+        const path = item.href.replace(url, '');
+        const needEntryPath = !/(http|https):\/\/([\w.]+\/?)\S*/.test(path);
+        return fetch(`${needEntryPath ? entryPath : ''}${item.href}`.replace(url, '')).then(
           function (response) {
             return response.text();
           }
